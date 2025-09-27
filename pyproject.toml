@@ -1,0 +1,8 @@
+[project]
+name = "pylint_custom_checker_example"
+version = "0.1.0"
+
+[project.optional-dependencies]
+dev = [
+  "pylint >= 3.3.8, < 4.0.0"
+]
