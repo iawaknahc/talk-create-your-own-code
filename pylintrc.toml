@@ -1,0 +1,4 @@
+[tool.pylint.main]
+load-plugins = ["urllib_parse"]
+disable = "all"
+enable = ["urllib-parse-rfc3986"]
