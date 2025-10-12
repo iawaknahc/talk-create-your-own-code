@@ -1,4 +1,5 @@
 [tool.pylint.main]
-load-plugins = ["urllib_parse"]
+load-plugins = ["restricted_module_items"]
 disable = "all"
-enable = ["urllib-parse-rfc3986"]
+enable = ["restricted-module-items"]
+restricted-module-items = ["urllib.parse.urlparse", "urllib.parse.urlunparse"]

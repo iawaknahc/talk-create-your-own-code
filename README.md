@@ -38,19 +38,18 @@ Once you have identified a certain code pattern should never exist in your codeb
 your next step is to codify it into a code (law) that can be enforced on everyone working on the codebase.
 In Python, you can do this with Pylint custom checkers.
 The technical details are not very interesting to be discussed here.
-This repository contains an implementation of a checker that forbids `url[un]parse`.
-You can refer to the Git commit history to see how to develop it.
+This repository contains an implementation of a checker that can be configured to forbid `url[un]parse`.
 You may also find [How to Write a Checker](https://pylint.readthedocs.io/en/stable/development_guide/how_tos/custom_checkers.html) a useful reference.
 Here is how the output looks like
 
 ```
 $ make pylint
-PYTHONPATH="$PWD/pylint_checkers" pylint --load-plugins=urllib_parse --disable=all --enable=urllib-parse-rfc3986 test.py
+PYTHONPATH="$PWD/pylint_checkers" pylint test.py
 ************* Module test
-test.py:6:8: E9501: urlparse and urlunparse implements RFC1808, not RFC3986. Use urlsplit and urlunsplit instead. (urllib-parse-rfc3986)
-test.py:7:8: E9501: urlparse and urlunparse implements RFC1808, not RFC3986. Use urlsplit and urlunsplit instead. (urllib-parse-rfc3986)
-test.py:11:8: E9501: urlparse and urlunparse implements RFC1808, not RFC3986. Use urlsplit and urlunsplit instead. (urllib-parse-rfc3986)
-test.py:12:8: E9501: urlparse and urlunparse implements RFC1808, not RFC3986. Use urlsplit and urlunsplit instead. (urllib-parse-rfc3986)
+test.py:2:0: E9601: urllib.parse.urlparse is restricted (restricted-module-items)
+test.py:2:0: E9601: urllib.parse.urlunparse is restricted (restricted-module-items)
+test.py:11:8: E9601: urllib.parse.urlparse is restricted (restricted-module-items)
+test.py:12:8: E9601: urllib.parse.urlunparse is restricted (restricted-module-items)
 
 ------------------------------------------------------------------
 Your code has been rated at 0.00/10 (previous run: 0.00/10, +0.00)
