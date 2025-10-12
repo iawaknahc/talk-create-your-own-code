@@ -2,4 +2,4 @@
 load-plugins = ["restricted_module_items"]
 disable = "all"
 enable = ["restricted-module-items"]
-restricted-module-items = ["urllib.parse.urlparse", "urllib.parse.urlunparse"]
+restricted-module-items = ["urllib.parse.urlparse", "urllib.parse.urlunparse", "celery.group"]
