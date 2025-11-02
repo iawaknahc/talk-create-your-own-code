@@ -1,3 +1,6 @@
+venv:
+	python3 -m venv venv
+
 .PHONY: setup
 setup:
 	pip install '.[dev]'
