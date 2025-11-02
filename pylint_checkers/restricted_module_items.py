@@ -8,8 +8,10 @@ if TYPE_CHECKING:
 
 
 def node_to_module_item(node: nodes.NodeNG) -> str:
+    # name()
     if isinstance(node, nodes.Name):
         return node.name
+    # name.attr()
     if isinstance(node, nodes.Attribute):
         attrs = []
         while True:
@@ -23,7 +25,10 @@ def node_to_module_item(node: nodes.NodeNG) -> str:
                 raise ValueError("unexpected node")
         attrs.reverse()
         return ".".join(attrs)
-    raise ValueError("unexpected node")
+    # name()()
+    if isinstance(node, nodes.Call):
+        return node_to_module_item(node.func)
+    raise ValueError(f"unexpected node {node}")
 
 
 def module_item_to_modname_and_name(module_item: str) -> tuple[str, str]:
