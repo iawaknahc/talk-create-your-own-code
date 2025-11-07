@@ -8,7 +8,8 @@ Code means **rules** here
 
 Create your own rules with **linter**
 
-To forbid **problematic** pattern in codebase
+- **Forbid** problematic pattern
+- **Detect** 3rd library usage that require team discussion
 
 ---
 
@@ -21,7 +22,7 @@ To forbid **problematic** pattern in codebase
 
 ###### Clever use of the type system
 
-- Make illegal states unrepresentable.
+- Make illegal states unrepresentable
 
 _But this technique only applies to the code you write._
 
@@ -62,13 +63,13 @@ Live code demo
 
 ###### The problem
 
-- Incorrect use of `celery.group`
+- Advanced features of Celery like `group` must be discussed before use.
 
 ---
 
 ###### The solution
 
-- Forbid the use of `celery.group`
+- Detect the use of such advanced features and start discussion
 
 ---
 
@@ -86,7 +87,8 @@ Live code demo
 
 ###### The problem
 
-- The default timezone in Go is `Local` while our project wants `UTC`.
+- All serialized `time.Time` must be in `UTC`.
+- But the default timezone is `Local`.
 
 ---
 
