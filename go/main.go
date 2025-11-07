@@ -23,7 +23,7 @@ func good(unixTimestamp int64) {
 	b, _ := json.MarshalIndent(Order{
 		CreatedAt: time.Unix(unixTimestamp, 0).UTC(),
 	}, "", "  ")
-	fmt.Printf("bad: %v\n", string(b))
+	fmt.Printf("good: %v\n", string(b))
 }
 
 func main() {
