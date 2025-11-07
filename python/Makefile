@@ -9,9 +9,13 @@ setup:
 lint-repl:
 	PYTHONPATH="$$PWD/pylint_checkers" pylint repl.py
 
-.PHONY: worker
-worker:
+.PHONY: celery-worker
+celery-worker:
 	celery -A tasks worker
+
+.PHONY: celery-call
+celery-call:
+	celery -A tasks call tasks.main_task
 
 .PHONY: lint-tasks
 lint-tasks:
